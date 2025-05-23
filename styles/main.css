@@ -787,7 +787,7 @@ main::before {
 
 @media (max-width: 768px) {
   .deuxiemeSection {
-    padding-top: 100px; /* ou margin-top */
+    padding-top: 100px; 
   }
 
   .premiereligne {
@@ -821,8 +821,8 @@ main::before {
 
 @media (max-width: 768px) {
   .titre {
-    top: 8vh;          /* diminue pour ne pas empiéter sur le carousel */
-    z-index: 5;        /* plus bas que carousel-box */
+    top: 8vh;   
+    z-index: 5;        
   }
 
   .titre h4 {
@@ -832,7 +832,7 @@ main::before {
   }
 
   .carousel-box {
-    top: 20%;          /* décale un peu plus bas pour éviter de superposer */
+    top: 20%;          
     position: relative;
     z-index: 10;
   }
