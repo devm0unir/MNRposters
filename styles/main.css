@@ -818,15 +818,23 @@ main::before {
     height: 90vh;
   }
 }
+
 @media (max-width: 768px) {
   .titre {
-    top: 10vh;
-    z-index: 100;
+    top: 8vh;          /* diminue pour ne pas empiéter sur le carousel */
+    z-index: 5;        /* plus bas que carousel-box */
   }
 
   .titre h4 {
-    font-size: 32px;
+    font-size: 28px;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 15px;
+  }
+
+  .carousel-box {
+    top: 20%;          /* décale un peu plus bas pour éviter de superposer */
+    position: relative;
+    z-index: 10;
   }
 }
+
