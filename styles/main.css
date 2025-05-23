@@ -782,3 +782,39 @@ main::before {
     padding: 3px 6px;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .deuxiemeSection {
+    padding-top: 100px; /* ou margin-top */
+  }
+
+  .premiereligne {
+    font-size: 40px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .deuxiemeligne {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .conteneur-texte-video {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .conteneur-texte {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  main {
+    height: 90vh;
+  }
+}
