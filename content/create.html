@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer un Poster Personnalisé</title>
+  <link rel="stylesheet" href="../styles/produitdetail.css">
+<link rel="stylesheet" href="../styles/create.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <link rel="icon" type="image/png" href="../images/iconesite.png">
+</head>
+<body>
+<header>
+<div class="navbar">
+  <img class="logo" src="../images/logo.png" alt="logo">
+
+  <ul>
+    <li><a href="../index.html" target="_blank">ACCUEIL</a></li>
+    <li><a href="produits.html" target="_blank">SHOP</a></li>
+    <li><a href="create.html" target="_blank">CRÉER</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+
+  <div class="right-section">
+    <a href="auth.html" target="_blank" class="login-button">SE CONNECTER</a>
+    <a href="panier.html" target="_blank" class="cart-icon-link"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+</div>
+
+</header>    
+  <div class="create-page">
+    <h1>Créez votre Poster Personnalisé</h1>
+    <form>
+      <div>
+        <label for="size">Taille et format souhaité</label>
+        <input type="text" id="size" name="size" placeholder="Ex : 50x70cm, format paysage...">
+      </div>
+
+      <div>
+        <label for="images">Images des joueurs à inclure (s'il y en a)</label>
+        <input type="file" id="images" name="images" multiple accept="image/*">
+      </div>
+
+      <div>
+        <label for="styles">Images de posters que vous aimez (style visuel)</label>
+        <input type="file" id="styles" name="styles" multiple accept="image/*">
+      </div>
+
+      <div>
+        <label for="colors">Préférences de couleurs (facultatif)</label>
+        <input type="text" id="colors" name="colors" placeholder="Ex : Rouge et noir, tons neutres...">
+      </div>
+
+      <div>
+        <label for="elements">Textes, logos ou objets à inclure</label>
+        <textarea id="elements" name="elements" placeholder="Ex : Nom du joueur, logo de l'équipe, ballon, etc."></textarea>
+      </div>
+
+      <div>
+        <label for="details">Toutes vos exigences et conditions</label>
+        <textarea id="details" name="details" placeholder="Soyez aussi précis que possible pour que notre designer réponde à vos attentes."></textarea>
+      </div>
+
+      <button type="submit">Envoyer la demande</button>
+    </form>
+  </div>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="../images/logo.png" alt="">
+      </div>
+      <p class="footer-description">
+        Création de posters football premium.<br>
+        100% personnalisés pour les vrais passionnés.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>NAVIGATION</h3>
+      <ul class="footer-links">
+        <li><a href="../index.html" target="_blank">HOME</a></li>
+        <li><a href="../index.html#about" target="_blank">ABOUT</a></li>
+        <li><a href="produits.html" target="_blank">SHOP</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>CONTACT</h3>
+      <ul class="footer-contact">
+        <li><i class="fas fa-envelope"></i> psdmounir@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +213 675195644</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>SUIVEZ-NOUS</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/mounir.psd/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.behance.net/mounirpsd" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; Tous droits réservés</p>
+  </div>
+</footer>
+
+
+</body>
+</html>

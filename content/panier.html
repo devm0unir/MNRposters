@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Panier</title>
+  <link rel="stylesheet" href="../styles/produitdetail.css">
+  <link rel="stylesheet" href="../styles/panier.css">
+  <link rel="icon" type="image/png" href="../images/iconesite.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="navbar">
+      <img class="logo" src="../images/logo.png" alt="logo">
+      <ul>
+        <li><a href="../index.html">ACCUEIL</a></li>
+        <li><a href="produits.html">SHOP</a></li>
+        <li><a href="create.html">CRÉER</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+      <a href="auth.html" class="login-button">SE CONNECTER</a>
+    </div>
+  </header>
+
+  <main class="cart-page">
+  <h1>Mon Panier</h1>
+  <div id="cart-container"></div>
+
+  <div class="cart-buttons">
+    <button id="clear-cart" class="clear-cart-btn">Vider le panier</button>
+    <button id="checkout-button" class="checkout-btn">Passer la commande</button>
+  </div>
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="../images/logo.png" alt="">
+      </div>
+      <p class="footer-description">
+        Création de posters football premium.<br>
+        100% personnalisés pour les vrais passionnés.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>NAVIGATION</h3>
+      <ul class="footer-links">
+        <li><a href="../index.html">ACCUEIL</a></li>
+        <li><a href="../index.html#about">ABOUT</a></li>
+        <li><a href="produits.html">SHOP</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>CONTACT</h3>
+      <ul class="footer-contact">
+        <li><i class="fas fa-envelope"></i> psdmounir@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +213 675195644</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>SUIVEZ-NOUS</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/mounir.psd/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.behance.net/mounirpsd" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; Tous droits réservés</p>
+  </div>
+</footer>
+
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cartContainer = document.getElementById('cart-container');
+      const clearBtn = document.getElementById('clear-cart');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+if (cart.length === 0) {
+  cartContainer.innerHTML = '<p class="empty-cart">Votre panier est vide.</p>';
+  clearBtn.style.display = 'none';
+  document.getElementById('checkout-button').style.display = 'none';
+  return;
+}
+
+
+      cart.forEach(product => {
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+
+        item.innerHTML = `
+          <img src="../images/${product.image}" alt="${product.name}">
+          <div class="cart-details">
+            <h3>${product.name}</h3>
+            <p class="price">${product.price}</p>
+          </div>
+        `;
+
+        cartContainer.appendChild(item);
+      });
+
+      clearBtn.addEventListener('click', function () {
+        localStorage.removeItem('cart');
+        location.reload();
+      });
+    });
+    const checkoutBtn = document.getElementById('checkout-button');
+
+checkoutBtn.addEventListener('click', function () {
+  window.location.href = 'auth.html';
+});
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/produitdetail.css">
+    <title>Détail du Produit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../images/iconesite.png">
+</head>
+<body>
+<header>
+<div class="navbar">
+  <img class="logo" src="../images/logo.png" alt="logo">
+
+  <ul>
+    <li><a href="../index.html" target="_blank">ACCUEIL</a></li>
+    <li><a href="produits.html" target="_blank">SHOP</a></li>
+    <li><a href="create.html" target="_blank">CRÉER</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+
+  <div class="right-section">
+    <a href="auth.html" target="_blank" class="login-button">SE CONNECTER</a>
+    <a href="panier.html" target="_blank" class="cart-icon-link"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+</div>
+</header>
+
+<main class="product-detail-page">
+    <div class="product-detail-container">
+        <div class="product-images slider">
+            <button class="slider-btn left" onclick="prevImage()">&#10094;</button>
+            <div class="slider-wrapper">
+                <img id="slider-image" src="" alt="Poster" class="main-detail-image">
+            </div>
+            <button class="slider-btn right" onclick="nextImage()">&#10095;</button>
+        </div>
+
+        <div class="product-info">
+            <h1 id="product-title"></h1>
+            <p class="detail-price" id="product-price"></p>
+
+            <div class="product-highlights">
+                <ul>
+                    <li>Livraison gratuite partout au monde</li>
+                    <li>Impression HD sur papier premium 200g/m²</li>
+                    <li>Format standard 50x70 cm (cadre non inclus)</li>
+                    <li>Emballage sécurisé et résistant</li>
+                </ul>
+            </div>
+
+            <div class="product-actions">
+                <button class="add-to-cart">ADD TO CART</button>
+                <button class="buy-now">BUY NOW</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer id="contact" class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <img src="../images/logo.png" alt="">
+            </div>
+            <p class="footer-description">
+                Création de posters football premium.<br>
+                100% personnalisés pour les vrais passionnés.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h3>NAVIGATION</h3>
+            <ul class="footer-links">
+                <li><a href="../index.html" target="_blank">HOME</a></li>
+                <li><a href="../index.html#about" target="_blank">ABOUT</a></li>
+                <li><a href="produits.html" target="_blank">SHOP</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>CONTACT</h3>
+            <ul class="footer-contact">
+                <li><i class="fas fa-envelope"></i> psdmounir@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +213 675195644</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h3>SUIVEZ-NOUS</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/mounir.psd/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.behance.net/mounirpsd" target="_blank"><i class="fab fa-behance"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; Tous droits réservés</p>
+    </div>
+</footer>
+
+<div id="toast" class="toast">Produit ajouté au panier !</div>
+
+<script>
+let currentImageIndex = 0;
+let images = [];
+let productImage = "";
+
+const mockupMap = {
+    "LEO-WORLD-CHAMPION.jpg": "messimockup.jpg",
+    "PIQU3.jpg": "piquemockup.jpg",
+    "BENNACER 1.jpg": "bennacermockup.jpg",
+    "RIYAD MAHREZ+.jpg": "mahrezmockup.jpg",
+    "PEDRI.jpg": "pedrimockup.jpg",
+    "TEENAGE KICK.jpg": "fatimockup.jpg",
+    "ERLING HAALAND.jpg": "haalandmockup.jpg",
+    "OUNAS ADAM.jpg": "ounasmockup.jpg",
+    "MEMPHIS DEPAY+.jpg": "depaymockup.jpg",
+    "STARBOY RASHY.jpg": "rashfordmockup.jpg",
+    "SB22--.jpg": "benrahmamockup.jpg",
+    "RL9 POSTER.jpg": "lewamockup.jpg"
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('name');
+    productImage = urlParams.get('image');
+    const productPrice = urlParams.get('price');
+
+    if (productName && productImage && productPrice) {
+        const mockupImage = mockupMap[productImage] || productImage;
+        images = [`../images/${productImage}`, `../images/${mockupImage}`];
+
+        document.getElementById('slider-image').src = images[currentImageIndex];
+        document.getElementById('product-title').textContent = productName;
+        document.getElementById('product-price').textContent = productPrice;
+    }
+
+    document.querySelector('.add-to-cart').addEventListener('click', function () {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({
+            name: document.getElementById('product-title').textContent,
+            price: document.getElementById('product-price').textContent,
+            image: productImage
+        });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showToast("Produit ajouté au panier !");
+    });
+
+    document.querySelector('.buy-now').addEventListener('click', function () {
+        const product = {
+            name: document.getElementById('product-title').textContent,
+            price: document.getElementById('product-price').textContent,
+            image: productImage
+        };
+        localStorage.setItem('checkoutProduct', JSON.stringify(product));
+        window.open('auth.html', '_blank');
+    });
+});
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    document.getElementById('slider-image').src = images[currentImageIndex];
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    document.getElementById('slider-image').src = images[currentImageIndex];
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2000);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentification</title>
+    <link rel="stylesheet" href="../styles/auth.css">
+    <link rel="icon" type="image/png" href="../images/iconesite.png">
+</head>
+<body>
+    <div class="auth-container">
+        <h2>CONNECTEZ-VOUS POUR FINALISER VOTRE ACHAT</h2>
+        
+        <form id="auth-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" required>
+            </div>
+            
+            <button type="submit" class="auth-button">SE CONNECTER</button>
+            <p class="auth-switch">Nouveau client ? <a href="inscrip.html" target="_blank">Créer un compte</a></p>
+        </form>
+    </div>
+
+    <script>
+    document.getElementById('auth-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const product = JSON.parse(localStorage.getItem('checkoutProduct'));
+
+        window.location.href = `checkout.html?product=${encodeURIComponent(JSON.stringify(product))}`;
+    });
+    </script>
+
+
+</body>
+</html>

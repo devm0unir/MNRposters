@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="javascript/script.js"></script>
+    <title>Posters Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/iconesite.png">
+
+</head>
+<body>
+
+<div class="navbar">
+  <img class="logo" src="images/logo.png" alt="logo">
+
+  <ul>
+    <li><a href="#accueil">ACCUEIL</a></li>
+    <li><a href="content/produits.html" target="_blank">SHOP</a></li>
+    <li><a href="content/create.html" target="_blank">CRÉER</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+
+  <div class="right-section">
+    <a href="content/auth.html" target="_blank" class="login-button">SE CONNECTER</a>
+    <a href="content/panier.html" target="_blank" class="cart-icon-link"><i class="fas fa-shopping-cart"></i></a>
+  </div>
+</div>
+
+<main id="accueil">
+    <div class="titre">
+        <h4>
+            OBTENEZ VOTRE POSTER DE FOOTBALL
+        </h4>
+        </div>
+    <div class="carousel-box">
+        <div class="carousel">
+            <div class="carousel-item" onclick="changeBg('ERLING HAALAND.jpg')">
+                <img src="images/ERLING HAALAND.jpg" alt="">
+            </div>
+            <div class="carousel-item" onclick="changeBg('RIYAD MAHREZ+.jpg')">
+                <img src="images/RIYAD MAHREZ+.jpg" alt="">
+            </div>
+            <div class="carousel-item" onclick="changeBg('LEO-WORLD-CHAMPION.jpg')">
+                <img src="images/LEO-WORLD-CHAMPION.jpg" alt="">
+            </div>
+            <div class="carousel-item" onclick="changeBg('BENNACER 1.jpg')">
+                <img src="images/BENNACER 1.jpg" alt="">
+            </div>
+            <div class="carousel-item" onclick="changeBg('TEENAGE KICK.jpg')">
+                <img src="images/TEENAGE KICK.jpg" alt="">
+            </div>
+        </div>
+</div>
+<section class="shopall-container">
+<a href="content/produits.html" target="_blank" class="shopall-button">Shop All</a>
+</section>
+</main>
+
+
+<script>
+$(document).ready(function(){
+    $('.carousel').carousel();
+  });
+</script>
+
+<section class="deuxiemeSection">
+  <div class="conteneur-texte-video">
+    <div class="conteneur-texte">
+      <h1 class="deuxiemetitre">
+        <span class="premiereligne">CRÉE TON</span>
+        <span class="deuxiemeligne">POSTER</span>
+      </h1>
+      <p class="description-creation">
+        <span class="feature"><i class="fas fa-users"></i> Votre club préféré</span> – couleurs, logo et motto<br>
+        <span class="feature"><i class="fas fa-star"></i> Vos idoles</span> – joueurs légendaires ou actuels<br>
+        <span class="feature"><i class="fas fa-trophy"></i> Vos moments forts</span> – buts historiques<br>
+        <span class="feature"><i class="fas fa-camera"></i> Vos images</span> – intégrez vos photos
+      </p>
+      <div class="create-container">
+      <a href="content/create.html" target="_blank">
+    <button class="bouton-create" >CRÉER</button>
+    </a>
+    </div>
+    </div>
+    
+    <video id="vidposters" src="./videos/videodeuxiemesection.mp4" autoplay muted loop></video>
+  </div>
+</section>
+
+
+<section class="best-selling">
+  <div class="container">
+    <h2 class="section-title">MEILLEURES VENTES</h2>
+    
+    <div class="posters-grid">
+
+<div class="poster" onclick="openProductDetail('LIONEL MESSI POSTER', 'LEO-WORLD-CHAMPION.jpg', '€29.99')">
+  <div class="poster-image">
+    <img src="images/LEO-WORLD-CHAMPION.jpg" alt="Poster football" class="main-image">
+    <img src="images/messimockup.jpg" alt="Poster encadré" class="hover-image">
+  </div>
+  <div class="poster-info">
+    <h3>LIONEL MESSI</h3>
+    <p class="price">€29.99</p>
+    <button class="add-to-cart">Ajouter au panier</button>
+  </div>
+</div>
+
+
+<div class="poster" onclick="openProductDetail('ERLING HAALAND POSTER', 'ERLING HAALAND.jpg', '€29.99')">
+  <div class="poster-image">
+    <img src="images/ERLING HAALAND.jpg" alt="Poster football" class="main-image">
+    <img src="images/haalandmockup.jpg" alt="Poster encadré" class="hover-image">
+  </div>
+  <div class="poster-info">
+    <h3>ERLING HAALAND</h3>
+    <p class="price">€29.99</p>
+    <button class="add-to-cart">Ajouter au panier</button>
+  </div>
+</div>
+
+
+<div class="poster" onclick="openProductDetail('PEDRI POSTER', 'PEDRI.jpg', '€29.99')">
+  <div class="poster-image">
+    <img src="images/PEDRI.jpg" alt="Poster football" class="main-image">
+    <img src="images/pedrimockup.jpg" alt="Poster encadré" class="hover-image">
+  </div>
+  <div class="poster-info">
+    <h3>PEDRI</h3>
+    <p class="price">€29.99</p>
+    <button class="add-to-cart">Ajouter au panier</button>
+  </div>
+</div>
+
+<div class="poster" onclick="openProductDetail('PIQUE POSTER', 'PIQU3.jpg', '€29.99')">
+  <div class="poster-image">
+    <img src="images/PIQU3.jpg" alt="Poster football" class="main-image">
+    <img src="images/piquemockup.jpg" alt="Poster encadré" class="hover-image">
+  </div>
+  <div class="poster-info">
+    <h3>PIQUE</h3>
+    <p class="price">€29.99</p>
+    <button class="add-to-cart">Ajouter au panier</button>
+  </div>
+</div>
+
+    </div>
+
+    <div class="view-all-container">
+      <a href="content/produits.html" target="_blank" class="view-all-btn">AFFICHER TOUT →</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-artist">
+  <div class="aacontainer">
+    <h2>EN SAVOIR PLUS SUR L'ARTISTE</h2>
+    <div class="divider-center"></div>
+    <div class="artist-text">
+      <p>
+Passionné par le football et le design graphique depuis 4 ans, Mounir réalise des posters percutants qui mettent en valeur l’univers du sport.
+Spécialiste de Photoshop pour la création de visuels destinés au digital comme à l’impression, il allie dynamisme et finition haut de gamme.
+      </p>
+      <p>
+Ayant collaboré avec plusieurs clubs étrangers et des joueurs professionnels tels qu’Emre Can ou Simon Adingra, il a affûté un style capable de sublimer chaque moment fort du jeu.
+Chaque poster est imprimé en <strong>qualité premium</strong> avec des encres résistantes aux UV.
+      </p>
+    </div>
+    <a href="https://www.behance.net/mounirpsd" target="_blank" class="portfolio-btn">VOIR LE PORTFOLIO</a>
+  </div>
+</section>
+
+<footer id="contact" class="site-footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="">
+      </div>
+      <p class="footer-description">
+        Création de posters football premium.<br>
+        100% personnalisés pour les vrais passionnés.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>NAVIGATION</h3>
+      <ul class="footer-links">
+        <li><a href="#accueil">ACCUEIL</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#">SHOP</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>CONTACT</h3>
+      <ul class="footer-contact">
+        <li><i class="fas fa-envelope"></i> psdmounir@gmail.com</li>
+        <li><i class="fas fa-phone"></i> +213 675195644</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>SUIVEZ-NOUS</h3>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/mounir.psd/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.behance.net/mounirpsd" target="_blank"><i class="fab fa-behance"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; Tous droits réservés</p>
+  </div>
+</footer>
+
+<script>
+function openProductDetail(name, image, price) {
+    const url = `content/produitdetail.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${encodeURIComponent(price)}`;
+    window.open(url, '_blank');
+}
+</script>
+
+<div id="toast" class="toast">Produit ajouté au panier !</div>
+
+
+</body>
+</html>
