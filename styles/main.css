@@ -818,3 +818,15 @@ main::before {
     height: 90vh;
   }
 }
+@media (max-width: 768px) {
+  .titre {
+    top: 10vh;
+    z-index: 100;
+  }
+
+  .titre h4 {
+    font-size: 32px;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
